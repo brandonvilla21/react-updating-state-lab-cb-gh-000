@@ -6,23 +6,32 @@ class ClassName extends React.Component {
     this.state = {
       errors: [],
       user: null,
-      settings: { 
+      settings: {
         bitrate: 8,
         video: { resolution: '1080p' }
       }
     }
   }
-  handleClick = () => {
+  handleClickBirate = () => {
     this.setState({
       settings: Object.assign(this.state.settings, {
         bitrate: 12
       })
     })
   }
+
+  handleClickResolution = () => {
+    this.setState({
+      settings: Object.assign(this.state.settings, {
+        video: { resolution: '720p' }
+      })
+    })
+  }
   render() {
     return (
       <div>
-        <button className="bitrate" onClick={this.handleClick}> Click me</button>
+        <button className="bitrate" onClick={this.handleClickBirate}> Change bitrate</button>
+        <button className="resolution" onClick={this.handleClickResolution}> Change resolution</button>
       </div>
     )
   }
